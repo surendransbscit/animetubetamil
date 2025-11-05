@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'animehubchennal',
     'corsheaders',
-    "storages",
+    'cloudinary',
+    'cloudinary_storage',
+     # "storages",
 ]
 
 MIDDLEWARE = [
@@ -151,21 +153,24 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-
-MEDIA_URL = "https://tqfzvrxwzlsqqlrgoosz.supabase.co/storage/v1/object/public/anime/"
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+CLOUDINARY_URL = "cloudinary://326681878224259:i0r1ixkDqs6Q4U5x4f9NlQNvydQ@dwcjwv0nn"
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
-AWS_ACCESS_KEY_ID = "9de8191df87d6c65e4bd315246fb542e"
-AWS_SECRET_ACCESS_KEY = "2e317ef30fc6e1f984e06ee8e5a2e59f3b355399d4983e6e922dda3aeb0fc3b9"
-AWS_STORAGE_BUCKET_NAME = "anime"  # your bucket name
-AWS_S3_ENDPOINT_URL = "https://tqfzvrxwzlsqqlrgoosz.storage.supabase.co/storage/v1/s3"
-AWS_S3_REGION_NAME = "ap-southeast-2"
-AWS_QUERYSTRING_AUTH = False
+
+
+# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+# AWS_ACCESS_KEY_ID = "9de8191df87d6c65e4bd315246fb542e"
+# AWS_SECRET_ACCESS_KEY = "2e317ef30fc6e1f984e06ee8e5a2e59f3b355399d4983e6e922dda3aeb0fc3b9"
+# AWS_STORAGE_BUCKET_NAME = "anime"  # your bucket name
+# AWS_S3_ENDPOINT_URL = "https://tqfzvrxwzlsqqlrgoosz.storage.supabase.co/storage/v1/s3"
+# AWS_S3_REGION_NAME = "ap-southeast-2"
+# AWS_QUERYSTRING_AUTH = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
