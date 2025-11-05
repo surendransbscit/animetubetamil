@@ -153,13 +153,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = "/media/"
+
+
+MEDIA_URL = "https://tqfzvrxwzlsqqlrgoosz.supabase.co/storage/v1/object/public/anime/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-AWS_ACCESS_KEY_ID = "64d4f99450cf428a67cffdd6069d252b"
-AWS_SECRET_ACCESS_KEY = "3b26abc320f46b33189b3633d7f46fc4e15acba5d0944e5ce839bf0a3d4cce02"
+AWS_ACCESS_KEY_ID = "9de8191df87d6c65e4bd315246fb542e"
+AWS_SECRET_ACCESS_KEY = "2e317ef30fc6e1f984e06ee8e5a2e59f3b355399d4983e6e922dda3aeb0fc3b9"
 AWS_STORAGE_BUCKET_NAME = "anime"  # your bucket name
 AWS_S3_ENDPOINT_URL = "https://tqfzvrxwzlsqqlrgoosz.storage.supabase.co/storage/v1/s3"
 AWS_S3_REGION_NAME = "ap-southeast-2"
