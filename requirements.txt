@@ -11,4 +11,7 @@ typing_extensions==4.15.0
 tzdata==2025.2
 gunicorn
 whitenoise
+django-storages
+boto3
+
 
