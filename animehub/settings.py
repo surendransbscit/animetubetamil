@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'animehubchennal',
     'corsheaders',
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -154,6 +155,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_ACCESS_KEY_ID = "64d4f99450cf428a67cffdd6069d252b"
+AWS_SECRET_ACCESS_KEY = "3b26abc320f46b33189b3633d7f46fc4e15acba5d0944e5ce839bf0a3d4cce02"
+AWS_STORAGE_BUCKET_NAME = "anime"  # your bucket name
+AWS_S3_ENDPOINT_URL = "https://tqfzvrxwzlsqqlrgoosz.storage.supabase.co/storage/v1/s3"
+AWS_S3_REGION_NAME = "ap-southeast-2"
+AWS_QUERYSTRING_AUTH = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
