@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Channel(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -23,7 +24,7 @@ class Channel(models.Model):
 class Anime(models.Model):
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE, related_name="animes")
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to="anime_images/", blank=True, null=True)
+    image = CloudinaryField("image", blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
