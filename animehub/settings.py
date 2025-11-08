@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 from datetime import timedelta
 import cloudinary_storage
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -188,3 +191,17 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dwcjwv0nn',
+    'API_KEY': '326681878224259',
+    'API_SECRET': 'i0r1ixkDqs6Q4U5x4f9NlQNvydQ',
+}
+
+cloudinary.config( 
+  cloud_name = "dwcjwv0nn", 
+  api_key = "326681878224259", 
+  api_secret = "i0r1ixkDqs6Q4U5x4f9NlQNvydQ"
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
