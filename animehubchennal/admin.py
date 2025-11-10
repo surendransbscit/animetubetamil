@@ -27,10 +27,10 @@ class SeasonInline(admin.TabularInline):
 class ChannelAdmin(admin.ModelAdmin):
     list_display = ("name", "author", "language", "created_on", "updated_on")
     search_fields = ("name", "author")
-    list_filter = ("language",)
+    list_filter = ("language","name")
     ordering = ("name", "language")
     readonly_fields = ("created_on", "updated_on")
-    list_editable = ("name","author","language")
+    list_editable = ("name","author","language",)
 
 
 @admin.register(Anime)
@@ -48,6 +48,7 @@ class AnimeAdmin(admin.ModelAdmin):
 class SeasonAdmin(admin.ModelAdmin):
     list_display = ("anime", "season_number", "channel_name")
     raw_id_fields = ("anime",)
+    list_filter = ("anime__channel__language","anime__channel__name","season_number")
     search_fields = ("anime__name",)
     ordering = ("anime", "season_number")
     readonly_fields = ("created_on", "updated_on")
@@ -62,6 +63,7 @@ class SeasonAdmin(admin.ModelAdmin):
 class EpisodeAdmin(admin.ModelAdmin):
     list_display = ("anime_name", "season", "episode_number", "youtube_link", "channel_name", "created_on")
     raw_id_fields = ("season",)
+    list_filter = ("season__anime__channel__language","season__anime__channel__name","season__anime__name")
     search_fields = ("season__anime__name",)
     ordering = ("season", "episode_number")
     readonly_fields = ("created_on", "updated_on")
