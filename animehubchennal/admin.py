@@ -30,6 +30,7 @@ class ChannelAdmin(admin.ModelAdmin):
     list_filter = ("language",)
     ordering = ("name", "language")
     readonly_fields = ("created_on", "updated_on")
+    list_editable = ("name","author","language")
 
 
 @admin.register(Anime)
@@ -39,6 +40,7 @@ class AnimeAdmin(admin.ModelAdmin):
     list_filter = ("channel__language",)
     ordering = ("channel", "name")
     readonly_fields = ("created_on", "updated_on")
+    list_editable = ("name", "channel")
     inlines = [SeasonInline]
 
 
