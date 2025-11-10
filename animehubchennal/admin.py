@@ -48,7 +48,7 @@ class AnimeAdmin(admin.ModelAdmin):
 class SeasonAdmin(admin.ModelAdmin):
     list_display = ("anime", "season_number", "channel_name")
     raw_id_fields = ("anime",)
-    list_filter = ("anime__channel__language","anime__channel__name","season_number")
+    list_filter = ("anime__channel__language","anime__channel__name","anime","season_number")
     search_fields = ("anime__name",)
     ordering = ("anime", "season_number")
     readonly_fields = ("created_on", "updated_on")
