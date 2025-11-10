@@ -31,6 +31,7 @@ class ChannelAdmin(admin.ModelAdmin):
     ordering = ("name", "language")
     readonly_fields = ("created_on", "updated_on")
     list_editable = ("name","author","language",)
+    list_per_page = 8
 
 
 @admin.register(Anime)
@@ -41,6 +42,7 @@ class AnimeAdmin(admin.ModelAdmin):
     ordering = ("channel", "name")
     readonly_fields = ("created_on", "updated_on")
     list_editable = ("name", "channel")
+    list_per_page = 8
     inlines = [SeasonInline]
 
 
@@ -52,6 +54,7 @@ class SeasonAdmin(admin.ModelAdmin):
     search_fields = ("anime__name",)
     ordering = ("anime", "season_number")
     readonly_fields = ("created_on", "updated_on")
+    list_per_page = 8
     inlines = [EpisodeInline]
 
     def channel_name(self, obj):
@@ -67,6 +70,7 @@ class EpisodeAdmin(admin.ModelAdmin):
     search_fields = ("season__anime__name",)
     ordering = ("season", "episode_number")
     readonly_fields = ("created_on", "updated_on")
+    list_per_page = 8
 
     def channel_name(self, obj):
         return obj.season.anime.channel.name
