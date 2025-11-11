@@ -11,7 +11,7 @@ class ChannelAPIView(APIView):
         channel = request.GET.get("channel")
         language = request.GET.get("language")
 
-        channels = Channel.objects.all().order_by('-created_on')
+        channels = Channel.objects.all().order_by('created_on')
 
         if channel:
             channels = channels.filter(Q(name__icontains=channel))
