@@ -6,7 +6,7 @@ def auto_get_request():
     while True:
         try:
             print("Auto GET calling /hello ...")
-            res = requests.get("http://127.0.0.1:8000/hello/")
+            res = requests.get("https://animetubetamil.onrender.com/hello/hello/")
             print("Response:", res.text)
         except Exception as e:
             print("Error:", e)
