@@ -76,3 +76,7 @@ class EpisodeAPIView(APIView):
 
         serializer = EpisodeSerializer(episodes, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class HelloView(APIView):
+    def get(self, request):
+        return Response({"message": "hello"})
