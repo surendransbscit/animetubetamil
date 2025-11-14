@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'animehubchennal.apps.AnimehubchennalConfig',
     'rest_framework',
-    'animehubchennal',
+    # 'animehubchennal',
     'corsheaders',
     'cloudinary',
     'cloudinary_storage',
